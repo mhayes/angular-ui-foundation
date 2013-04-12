@@ -1,0 +1,43 @@
+<!doctype html>
+<html lang="en" ng-app="FoundationDemoApp">
+<head>
+  <meta charset="UTF-8">
+  <title>AngularUI Foundation</title>
+  <link rel="stylesheet" type="text/css" href="assets/normalize.css">
+  <link rel="stylesheet" type="text/css" href="assets/foundation.css">
+  <link rel="stylesheet" type="text/css" href="assets/foundation-overrides.css">
+  <script src="assets/custom.modernizr.js"></script>
+  <script src="assets/angular.min.js"></script>
+  <script src="../src/ui-foundation.js"></script>
+  <script src="assets/app.js"></script>
+</head>
+<body>
+  <div class="row">
+    <div class="large-12 columns">
+
+      <div ng-controller="MainCntrl">
+        <h1>{{title}}</h1>
+      </div>
+
+      <div ng-controller="AlertDemoCntrl">
+        <h2 class="subheader">Alerts</h2>
+        <alert ng-repeat="alert in alerts" type="alert.type" close="closeAlert($index)">
+          {{alert.message}}
+        </alert>
+      </div>
+
+      <div ng-controller="RevealDemoCntrl">
+        <h2 class="subheader">Reveal Modals</h2>
+        <button class="button" ng-click="openModal()">Open Modal</button>
+
+        <reveal visible="visible">
+          <h2>Angular Reveral Modal</h2>
+          <p>Content inside the reveal modal!</p>
+        </reveal>
+      </div>
+
+    </div>
+  </div>
+
+</body>
+</html>
