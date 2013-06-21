@@ -1,7 +1,7 @@
 angular.module("ui.foundation", ["ui.foundation.alert", "ui.foundation.reveal"]);
 
 angular.module("ui.foundation.alert", [])
-  .directive("alert", function() {
+  .directive("alert", function($window) {
     return {
       restrict: "E",
       scope: {
@@ -13,6 +13,10 @@ angular.module("ui.foundation.alert", [])
       link: function(scope, element, attrs) {
         // true if this condition
         // <alert close=""></alert>
+        element.ready(function(){
+
+          console.info(element.width());
+        });
         scope.closeable = "close" in attrs;
       }
     }
@@ -27,9 +31,6 @@ angular.module("ui.foundation.reveal", [])
       },
       controller: function($scope){
         $scope.$watch('visible', function() {
-          if (typeof console === 'object') {
-            console.info('visible changed: ' + $scope.visible);
-          }
         });
         $scope.toggle = function() {
           $scope.visible = !$scope.visible;
