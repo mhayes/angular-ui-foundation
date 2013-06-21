@@ -2747,8 +2747,8 @@ form.custom {
   left: 0; }
 
 .reveal-modal {
-  visibility: hidden;
   // FIXME: ANGULARJS SUPPORT
+  // visibility: hidden;
   // display: none;
   position: absolute;
   left: 50%;
