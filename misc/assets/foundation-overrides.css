@@ -2,3 +2,12 @@
 .reveal-animation {
   display:none;
 }
+
+.reveal-animation .reveal-modal {
+  display: block;
+  visibility: visible;
+}
+
+.reveal-animation .reveal-modal-bg {
+  display: block;
+}
