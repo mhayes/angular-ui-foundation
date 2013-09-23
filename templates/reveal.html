@@ -1,5 +1,7 @@
-<div class="reveal-modal" ng-show="visible">
-  <div ng-transclude></div>
-  <a class="close-reveal-modal" ng-click="toggle()">&#215;</a>
+<div class="reveal-animation" ng-show="visible" callback="callback()">
+  <div class="reveal-modal">
+    <div ng-transclude></div>
+    <a class="close-reveal-modal" ng-click="close()">&#215;</a>
+  </div>
+  <div class="reveal-modal-bg" ng-click="close()"></div>
 </div>
-<div class="reveal-modal-bg" ng-show="visible" ng-click="toggle()"></div>

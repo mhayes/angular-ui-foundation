@@ -10,15 +10,12 @@ app.controller("AlertDemoCntrl",["$scope", function($scope){
     {type:'success', message:'Completed successfully!'},
     {type:'alert', message:'Oh noes!'}
   ]
-  $scope.closeAlert = function($index) {
-    $scope.alerts.splice($index, 1);
-  }
 }]);
 
 app.controller("RevealDemoCntrl", ["$scope", function($scope){
   $scope.visible = false;
   $scope.openModal = function() {
-    $scope.visible = true
+    $scope.visible = true;
   }
 }]);
 

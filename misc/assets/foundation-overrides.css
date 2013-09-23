@@ -1,0 +1,4 @@
+/* Address an issue where this is displayed by default */
+.reveal-animation {
+  display:none;
+}

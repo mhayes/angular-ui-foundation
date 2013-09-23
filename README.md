@@ -2,15 +2,15 @@
 
 **NOTE:** This is a work in progress.
 
-Provides directives specific for using Foundation with Angular JS. To setup on your system:
+Provides directives specific for using Foundation with Angular JS. To setup on your system run the following commands:
 
-  - `git clone git@github.com:mhayes/angular-ui-foundation.git`
-  - Open `misc/index.html` in your browser
-  - Foundation directives can be found in `src/ui-foundation.js`
+```bash
+`git clone git@github.com:mhayes/angular-ui-foundation.git`
+Run `bin/setup`
+```
+
+Foundation directives can be found in `src/ui-foundation.js`
 
 ## TODO
 
-### `ui.foundation.utils`
-
-  - `containerSize` needs to accept `w` and `h` parameters to selectively set just width or height
-  - `containerSize` needs to have a mechanism to force it to recompute the container height/width
+List todo items here.

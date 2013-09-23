@@ -9,6 +9,7 @@
   <script src="assets/custom.modernizr.js"></script>
   <script src="assets/jquery.min.js"></script>
   <script src="assets/angular.min.js"></script>
+  <script src="assets/angular-animate.min.js"></script>
   <script src="../src/ui-foundation.js"></script>
   <script src="assets/app.js"></script>
 </head>
@@ -22,7 +23,7 @@
 
       <div ng-controller="AlertDemoCntrl">
         <h2 class="subheader">Alerts</h2>
-        <alert ng-repeat="alert in alerts" type="alert.type" close="closeAlert($index)">
+        <alert ng-repeat="alert in alerts" data-fadeoutspeed="500" type="alert.type">
           {{alert.message}}
         </alert>
       </div>
@@ -36,27 +37,6 @@
           <p>Content inside the reveal modal!</p>
         </reveal>
       </div>
-
-      <div ng-controller="SectionDemoCntrl">
-        <h2 class="subheader">Sections</h2>
-
-        <div class="section-container">
-          <section ng-repeat="section in sections" 
-            ng-class="getClass($index)">
-            <p class="title">
-              <a ng-click="setActiveIdx($index)">
-                {{section.title}}
-              </a>
-            </p>
-            <div class="content">
-              {{section.content}}
-            </div>
-          </section>
-        </div>
-
-      </div>
-    </div>
   </div>
-
 </body>
 </html>
