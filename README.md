@@ -5,12 +5,22 @@
 Provides directives specific for using Foundation with Angular JS. To setup on your system run the following commands:
 
 ```bash
-`git clone git@github.com:mhayes/angular-ui-foundation.git`
-Run `bin/setup`
+git clone git@github.com:mhayes/angular-ui-foundation.git
+bin/setup
 ```
 
 Foundation directives can be found in `src/ui-foundation.js`
 
 ## TODO
 
-List todo items here.
+#### directives
+
+  * Orbit
+  * Abide
+  * Clearing
+  * Dropdown
+  * Dropdown Buttons
+  * Joyride
+  * Magellan
+  * Section
+  * Tooltips
