@@ -14,8 +14,9 @@ angular.module("foundation.alert", [])
         // true if this condition
         // <alert close=""></alert>
         element.ready(function(){
-          console.info(attrs.fadeoutspeed);
-          console.info(element.width());
+          element.addClass(attrs.animation + '-animation');
+          // console.info(attrs.fadeoutspeed);
+          // console.info(element.width());
         });
         // scope.closeable = "close" in attrs;
         scope.close = function(event) {
@@ -23,15 +24,6 @@ angular.module("foundation.alert", [])
           // $animate.leave: element determines which animation is called
           $animate.leave(element, $.noop);
         };
-      }
-    }
-  })
-  .animation(".alert-animation", function() {
-    return {
-      leave: function(element, done){
-        element.fadeOut(function(){
-          done();
-        });
       }
     }
   });

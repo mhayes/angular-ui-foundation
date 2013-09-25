@@ -9,6 +9,9 @@ angular.module("foundation.reveal", [])
       replace: true,
       templateUrl: "/src/app/reveal/reveal.html",
       link: function(scope, element, attrs) {
+        element.ready(function(){
+          element.addClass(attrs.animation + '-animation');
+        });
         scope.visible = false;
         // May be able to do a callback by watching this???
 

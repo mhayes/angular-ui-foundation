@@ -13,6 +13,7 @@
   
   
   <script src="../src/app/foundation.js"></script>
+  <script src="../src/app/animations/animations.js"></script>
   <script src="../src/app/alert/alert.js"></script>
   <script src="../src/app/reveal/reveal.js"></script>
   <script src="assets/app.js"></script>
@@ -27,7 +28,7 @@
 
       <div ng-controller="AlertDemoCntrl">
         <h2 class="subheader">Alerts</h2>
-        <alert ng-repeat="alert in alerts" data-fadeoutspeed="500" type="alert.type">
+        <alert ng-repeat="alert in alerts" data-fadeoutspeed="500" type="alert.type" animation="fade-out">
           {{alert.message}}
         </alert>
       </div>
