@@ -1,4 +1,4 @@
-var app = angular.module("FoundationDemoApp", ["ui.foundation"]);
+var app = angular.module("FoundationDemoApp", ["foundation"]);
 
 app.controller("MainCntrl", ["$scope", function($scope){
   //return true;

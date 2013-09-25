@@ -1,0 +1,11 @@
+{
+  "name": "angular-ui-foundation",
+  "version": "0.0.1",
+  "dependencies": {
+    "modernizr": "~2.6.2",
+    "jquery": "~2.0.3",
+    "angular": "~v1.2.0-rc.2",
+    "angular-animate": "~v1.2.0-rc.2",
+    "foundation": "git://github.com/mhayes/foundation.git#v4.3.2"
+  }
+}

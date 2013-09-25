@@ -1,0 +1,1 @@
+angular.module("foundation", ["ngAnimate", "foundation.alert", "foundation.reveal"]);

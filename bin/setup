@@ -2,7 +2,9 @@
 
 if which npm >/dev/null; then
   sudo npm install grunt-cli -g
+  sudo npm install bower -g
   npm install
+  bower install
   echo "\nReady to go, to run a web server type: bin/server\n"
 else
   echo "Please install node.js: http://nodejs.org/"
