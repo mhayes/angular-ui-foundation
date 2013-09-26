@@ -25,5 +25,5 @@ angular.module("foundation.alert", [])
           $animate.leave(element, $.noop);
         };
       }
-    }
+    };
   });

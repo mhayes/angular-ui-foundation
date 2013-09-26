@@ -19,7 +19,7 @@ angular.module("foundation.reveal", [])
           scope.visible = false;
         };
       }
-    }
+    };
   })
   .animation(".reveal-animation", function(){
     return {
@@ -41,5 +41,5 @@ angular.module("foundation.reveal", [])
           modal.animate({top:"50px"},300, function(){ done(); });
         }
       }
-    }
+    };
   });
