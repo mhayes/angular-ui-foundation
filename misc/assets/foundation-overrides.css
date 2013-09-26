@@ -1,13 +1,11 @@
 /* Address an issue where this is displayed by default */
-.reveal-animation {
-  display:none;
-}
 
-.reveal-animation .reveal-modal {
+
+.slide-in-animation .reveal-modal {
   display: block;
   visibility: visible;
 }
 
-.reveal-animation .reveal-modal-bg {
+.slide-in-animation .reveal-modal-bg {
   display: block;
 }

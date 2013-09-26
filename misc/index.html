@@ -5,6 +5,7 @@
   <title>AngularUI Foundation</title>
   <link rel="stylesheet" type="text/css" href="../src/vendor/foundation/foundation.min.css">
   <link rel="stylesheet" type="text/css" href="assets/foundation-overrides.css">
+	<link rel="stylesheet" type="text/css" href="../src/app/animations/animations.css">
 
   <script src="../src/vendor/modernizr/modernizr.js"></script>
   <script src="../src/vendor/jquery/jquery.min.js"></script>
@@ -37,7 +38,7 @@
         <h2 class="subheader">Reveal Modals</h2>
         <button class="button" ng-click="openModal()">Open Modal</button>
 
-        <reveal visible="visible">
+        <reveal visible="visible" animation="slide-in">
           <h2>Angular Reveral Modal</h2>
           <p>Content inside the reveal modal!</p>
         </reveal>
