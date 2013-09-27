@@ -1,25 +1,31 @@
 var app = angular.module("FoundationDemoApp", ["foundation"]);
 
-app.controller("MainCntrl", ["$scope", function($scope){
+app.controller("MainCtrl", ["$scope", function($scope){
   //return true;
   $scope.title = "Angular-UI Foundation";
 }]);
 
-app.controller("AlertDemoCntrl",["$scope", function($scope){
+app.controller("AlertDemoCtrl",["$scope", function($scope){
   $scope.alerts = [
     {type:'success', message:'Completed successfully!'},
     {type:'alert', message:'Oh noes!'}
   ]
 }]);
 
-app.controller("RevealDemoCntrl", ["$scope", function($scope){
-  $scope.visible = false;
-  $scope.openModal = function() {
-    $scope.visible = true;
-  }
+app.controller("RevealDemoCtrl", ["$scope", function($scope){
+  $scope.slideTopModal = function() {
+    $scope.slideTop = true;
+  };
+	$scope.slideLeftModal = function() {
+		$scope.slideLeft = true;
+		$scope.slideTop = false;
+	};
+	$scope.fadeInModal = function() {
+		$scope.fadeIn = true;
+	};
 }]);
 
-app.controller("SectionDemoCntrl", ["$scope", function($scope){
+app.controller("SectionDemoCtrl", ["$scope", function($scope){
   $scope.activeIdx = 0;
   $scope.sections = [
     {title: "Section 1", content: "Content 1 goes here!"},

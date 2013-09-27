@@ -23,25 +23,37 @@
   <div class="row">
     <div class="large-12 columns">
 
-      <div ng-controller="MainCntrl">
+      <div ng-controller="MainCtrl">
         <h1>{{title}}</h1>
       </div>
 
-      <div ng-controller="AlertDemoCntrl">
+      <div ng-controller="AlertDemoCtrl">
         <h2 class="subheader">Alerts</h2>
         <alert ng-repeat="alert in alerts" data-fadeoutspeed="500" type="alert.type" animation="fade-out">
           {{alert.message}}
         </alert>
       </div>
 
-      <div ng-controller="RevealDemoCntrl">
+      <div ng-controller="RevealDemoCtrl">
         <h2 class="subheader">Reveal Modals</h2>
-        <button class="button" ng-click="openModal()">Open Modal</button>
-
-        <reveal visible="visible" animation="slide-in">
-          <h2>Angular Reveral Modal</h2>
+        <button class="button" ng-click="slideTopModal()">Modal sliding from top</button>
+				<button class="button" ng-click="slideLeftModal()">Modal sliding from left!</button>
+				<button class="button" ng-click="fadeInModal()">Modal fading in!</button>
+        <reveal visible="slideTop" animation="slide-top">
+          <h2>Angular Reveal Modal</h2>
           <p>Content inside the reveal modal!</p>
+					<button class="button" ng-click="slideLeftModal()">Modal sliding from left!</button>
         </reveal>
+
+				<reveal visible="slideLeft" animation="slide-left">
+					<h2>Angular Reveal Modal2</h2>
+					<p>Content inside the reveal modal2!</p>
+				</reveal>
+
+				<reveal visible="fadeIn" animation="fade-in">
+					<h2>Angular Reveal Modal2</h2>
+					<p>Content inside the reveal modal2!</p>
+				</reveal>
       </div>
   </div>
 </body>

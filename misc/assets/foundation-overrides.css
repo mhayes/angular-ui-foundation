@@ -1,11 +1,8 @@
 /* Address an issue where this is displayed by default */
-
-
-.slide-in-animation .reveal-modal {
+.reveal-modal {
   display: block;
   visibility: visible;
 }
-
-.slide-in-animation .reveal-modal-bg {
+.reveal-modal-bg {
   display: block;
 }
