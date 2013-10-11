@@ -13,7 +13,7 @@ module.exports = function(config) {
 			'src/vendor/angular-mocks/angular-mocks.js',
 			'src/app/**/*.js',
 			'test/unit/**/*.spec.js',
-			'src/app/**/*.html'
+			'src/app/alert/alert.html'
 		],
 
 		// list of files to exclude
@@ -54,7 +54,11 @@ module.exports = function(config) {
 
 		// Continuous Integration mode
 		// if true, it capture browsers, run tests and exit
-		singleRun: false
+		singleRun: false,
+
+		preprocessors: {
+			'src/app/alert/alert.html': ['ng-html2js']
+		}
 
 	});
 };

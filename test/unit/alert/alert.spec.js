@@ -1,5 +1,5 @@
 describe('alert', function() {
-	var scope, element, $compile;
+	var scope, element, $compile, $animate;
 
 	beforeEach(module('foundation.alert'));
 
@@ -9,15 +9,14 @@ describe('alert', function() {
 		$templateCache.put('/src/app/alert/alert.html', $templateCache.get('src/app/alert/alert.html'));
 	}));
 
-
-
-	beforeEach(inject(function($rootScope, _$compile_, $controller) {
+	beforeEach(inject(function($rootScope, _$compile_, _$animate_) {
 		scope = $rootScope;
 		$compile = _$compile_;
+		$animate = _$animate_;
 
 		element = angular.element(
 			'<div>' +
-				'<alert ng-repeat="alert in alerts" data-fadeoutspeed="500" type="alert.type" animation="fade-out">' +
+				'<alert ng-repeat="alert in alerts" type="alert.type" animation="fade-out">' +
           '{{alert.message}}' +
 				'</alert>' +
 			'</div>'
@@ -52,32 +51,12 @@ describe('alert', function() {
 		expect(alerts.eq(1).text()).toContain('Oh noes!');
 	});
 
-});
+	it('should call leave parameter of animate object when close is clicked', function() {
+		var alerts = createAlerts();
+		var close = alerts.find('.close');
+		var spy = spyOn($animate, 'leave');
+		close.click();
+		expect(spy).toHaveBeenCalled();
+	});
 
-//
-//	it("should fire callback when closed", function () {
-//
-//		var alerts = createAlerts();
-//
-//		scope.$apply(function () {
-//			scope.removeAlert = jasmine.createSpy();
-//		});
-//
-//		findCloseButton(1).click();
-//		expect(scope.removeAlert).toHaveBeenCalledWith(1);
-//	});
-//
-//	it('should not show close buttons if no close callback specified', function () {
-//		var element = $compile('<alert>No close</alert>')(scope);
-//		scope.$digest();
-//		expect(findCloseButton(0).length).toEqual(0);
-//	});
-//
-//	it('it should be possible to add additional classes for alert', function () {
-//		var element = $compile('<alert class="alert-block" type="\'info\'">Default alert!</alert>')(scope);
-//		scope.$digest();
-//		expect(element).toHaveClass('alert-block');
-//		expect(element).toHaveClass('alert-info');
-//	});
-//
-//});
+});
