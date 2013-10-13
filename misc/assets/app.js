@@ -39,3 +39,23 @@ app.controller("SectionDemoCtrl", ["$scope", function($scope){
     $scope.activeIdx = idx;
   };
 }]);
+
+app.controller('OrbitDemoCtrl', ['$scope', function($scope) {
+	$scope.items = [
+		{
+			name: 'a',
+			value: 'http://foundation.zurb.com/docs/img/demos/orbit/demo1.jpg',
+			caption: 'First Caption'
+		},
+		{
+			name: 'b',
+			value: 'http://foundation.zurb.com/docs/img/demos/orbit/demo2.jpg',
+			caption: 'Second Caption'
+		},
+		{
+			name: 'c',
+			value: 'http://foundation.zurb.com/docs/img/demos/orbit/demo3.jpg',
+			caption: 'Third Caption'
+		}
+	];
+}]);

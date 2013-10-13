@@ -10,6 +10,7 @@
   <script src="../src/vendor/modernizr/modernizr.js"></script>
   <script src="../src/vendor/jquery/jquery.min.js"></script>
   <script src="../src/vendor/angular/angular.min.js"></script>
+	<script src="../src/vendor/angular-touch/angular-touch.min.js"></script>
   <script src="../src/vendor/angular-animate/angular-animate.min.js"></script>
   
   
@@ -17,6 +18,8 @@
   <script src="../src/app/animations/animations.js"></script>
   <script src="../src/app/alert/alert.js"></script>
   <script src="../src/app/reveal/reveal.js"></script>
+	<script src="../src/app/orbit/orbit.js"></script>
+	<script src="../src/app/common/rotator.js"></script>
   <script src="assets/app.js"></script>
 </head>
 <body>
@@ -54,7 +57,12 @@
 					<h2>Angular Reveal Modal2</h2>
 					<p>Content inside the reveal modal2!</p>
 				</reveal>
+
       </div>
+			<div ng-controller="OrbitDemoCtrl">
+				<orbit items="items"></orbit>
+			</div>
+		</div>
   </div>
 </body>
 </html>

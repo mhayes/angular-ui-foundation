@@ -1,0 +1,21 @@
+<!-- Orbit Container -->
+<div class="orbit-container">
+	<ul class="orbit-slides-container" style="height: 500px">
+		<li class="active" ng-swipe-left="next()" ng-swipe-right="prev()">
+			<img ng-src="{{currentItem.value}}">
+			<div class="orbit-caption">{{currentItem.caption}}</div>
+		</li>
+	</ul>
+	<a class="orbit-prev" ng-click="prev()">Prev <span></span></a>
+	<a class="orbit-next" ng-click="next()">Next <span></span></a>
+
+	<div class="orbit-slide-number">
+		<span>{{currentIndex + 1}}</span> of <span>{{items.length}}</span>
+	</div>
+
+	<!-- Orbit Bullet Slide Indicator -->
+	<ol class="orbit-bullets">
+		<li ng-repeat="item in items" ng-class="{active: isActive(item)}" ng-click="select(item)"></li>
+	</ol>
+
+</div>

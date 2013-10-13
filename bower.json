@@ -6,7 +6,8 @@
     "jquery": "~2.0.3",
     "angular": "~v1.2.0-rc.2",
     "angular-animate": "~v1.2.0-rc.2",
-    "foundation": "git://github.com/mhayes/foundation.git#v4.3.2"
+    "foundation": "git://github.com/mhayes/foundation.git#v4.3.2",
+    "angular-touch": "~1.2.0-rc.2"
   },
   "devDependencies": {
     "angular-mocks": "1.2.0-rc.2"
