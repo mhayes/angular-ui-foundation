@@ -10,10 +10,11 @@ module.exports = function(config) {
 		files: [
 			'src/vendor/jquery/jquery.min.js',
 			'src/vendor/angular/angular.js',
+			'src/vendor/angular-touch/angular-touch.js',
 			'src/vendor/angular-mocks/angular-mocks.js',
 			'src/app/**/*.js',
 			'test/unit/**/*.spec.js',
-			'src/app/alert/alert.html'
+			'src/app/**/*.html'
 		],
 
 		// list of files to exclude
@@ -57,7 +58,7 @@ module.exports = function(config) {
 		singleRun: false,
 
 		preprocessors: {
-			'src/app/alert/alert.html': ['ng-html2js']
+			'src/app/**/*.html': ['ng-html2js']
 		}
 
 	});

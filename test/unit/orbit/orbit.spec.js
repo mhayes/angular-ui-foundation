@@ -1,17 +1,88 @@
 describe('Orbit directive', function() {
-	var scope, element, $compile;
+	var scope, element, $compile, $controller, orbitScope;
 
 	beforeEach(module('foundation.orbit'));
 	beforeEach(module('src/app/orbit/orbit.html'));
 	beforeEach(inject(function($templateCache) {
-		$templateCache.put('/src/app/orbit/orbit.html', $templateCache.get('src/app/alert/alert.html'));
+		$templateCache.put('/src/app/orbit/orbit.html', $templateCache.get('src/app/orbit/orbit.html'));
 	}));
 
-	beforeEach(inject(function($rootScope, _$compile_) {
+	beforeEach(inject(function($rootScope, _$compile_, _$controller_) {
 		scope = $rootScope;
 		$compile = _$compile_;
-		element = angular.element('<orbit></orbit>');
+		$controller = _$controller_;
+		scope.items = [
+			{name: 'a', value: 'alpha'},
+			{name: 'b', value: 'bravo'},
+			{name: 'c', value: 'charlie'}
+		];
+		element = angular.element('<orbit items="items"></orbit>');
+		$compile(element)(scope);
+		scope.$digest();
+		orbitScope = element.scope();
 	}));
+
+	afterEach(function(){
+		scope.$destroy();
+	});
+
+	function clickNext() {
+		var next = element.find('a.orbit-next');
+		next.click();
+	}
+	function clickPrev() {
+		var prev = element.find('a.orbit-prev');
+		prev.click();
+	}
+
+	it('should create prev and next nav buttons', function() {
+		var prev = element.find('a.orbit-prev');
+		var next = element.find('a.orbit-next');
+		expect(prev.length).toBe(1);
+		expect(next.length).toBe(1);
+	});
+
+	it('should create item indicators', function() {
+		var indicators = element.find('ol.orbit-bullets > li');
+		expect(indicators.length).toBe(3);
+	});
+
+	it('should go to next item when clicking next', function() {
+		clickNext();
+		expect(orbitScope.currentIndex).toEqual(1);
+		clickNext();
+		expect(orbitScope.currentIndex).toEqual(2);
+	});
+
+	it('should go to the first item when clicking next from the last item', function() {
+		orbitScope.currentIndex = 2;
+		clickNext();
+		expect(orbitScope.currentIndex).toEqual(0);
+	});
+
+	it('should go to previous item when clicking previous', function() {
+		orbitScope.currentIndex = 2;
+		clickPrev();
+		expect(orbitScope.currentIndex).toEqual(1);
+		clickPrev();
+		expect(orbitScope.currentIndex).toEqual(0);
+	});
+
+	it('should go to the last item when clicking previous from the first item', function() {
+    clickPrev();
+		expect(orbitScope.currentIndex).toEqual(2);
+	});
+
+	it('should apply an active class to the selected item indicator', function() {
+		var indicators = element.find('ol.orbit-bullets > li');
+		expect(angular.element(indicators[0]).hasClass('active')).toBe(true);
+		expect(angular.element(indicators[1]).hasClass('active')).toBe(false);
+		expect(angular.element(indicators[2]).hasClass('active')).toBe(false);
+		clickNext();
+		expect(angular.element(indicators[0]).hasClass('active')).toBe(false);
+		expect(angular.element(indicators[1]).hasClass('active')).toBe(true);
+		expect(angular.element(indicators[2]).hasClass('active')).toBe(false);
+	});
 
 
 });

@@ -1,19 +1,16 @@
-angular.module('foundation.orbit', ['rotator', 'ngTouch'])
-	.controller('OrbitCtrl', ['$scope','$timeout', function($scope, $timeout) {
+angular.module('foundation.orbit', ['ngTouch'])
+	.controller('OrbitCtrl', ['$scope', '$timeout', function($scope, $timeout) {
 
 		$scope.currentIndex = 0;
+		var currentTimeout;
 
 		$scope.next = function() {
-			$scope.currentIndex ++;
-			if($scope.currentIndex === $scope.items.length) {
-				$scope.currentIndex = 0;
-			}
+			$scope.currentIndex = ($scope.currentIndex+1 === $scope.items.length) ? 0 : ++$scope.currentIndex;
+			restartTimer();
 		};
 		$scope.prev = function() {
-			$scope.currentIndex --;
-			if($scope.currentIndex < 0) {
-				$scope.currentIndex = $scope.items.length - 1;
-			}
+			$scope.currentIndex = ($scope.currentIndex -1 < 0) ? ($scope.items.length - 1) : --$scope.currentIndex;
+			restartTimer();
 		};
 		$scope.$watch('currentIndex', function(index) {
 			$scope.currentItem = $scope.items[index];
@@ -27,14 +24,31 @@ angular.module('foundation.orbit', ['rotator', 'ngTouch'])
 			$scope.currentItem = item;
 		};
 
+		var restartTimer = function() {
+			if(currentTimeout) {
+				$timeout.cancel(currentTimeout);
+			}
+			var interval = +$scope.interval;
+			if( !isNaN(interval) && interval >=0) {
+				currentTimeout = $timeout(function() {
+					console.log(new Date());
+					$scope.next();
+					restartTimer();
+				}, interval);
+			}
+		};
+
+		$scope.$watch('interval', restartTimer);
+
 	}])
-	.directive('orbit', ['rotatorService', function(rotatorService) {
+	.directive('orbit', [function() {
 		return {
 			restrict: 'E',
 			templateUrl: '/src/app/orbit/orbit.html',
 			scope: {
 				current: '&',
-				items: '='
+				items: '=',
+				interval: '='
 			},
 			controller: 'OrbitCtrl'
 		};
