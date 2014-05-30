@@ -1,24 +1,45 @@
 <!doctype html>
 <html lang="en" ng-app="FoundationDemoApp">
-<head>
-  <meta charset="UTF-8">
-  <title>AngularUI Foundation</title>
-  <link rel="stylesheet" type="text/css" href="../src/vendor/foundation/foundation.min.css">
-  <link rel="stylesheet" type="text/css" href="assets/foundation-overrides.css">
+  <head>
+    <meta charset="UTF-8">
+    <title>AngularUI Foundation</title>
+    <link rel="stylesheet" type="text/css" href="../src/vendor/foundation/foundation.min.css">
+    <link rel="stylesheet" type="text/css" href="assets/foundation-overrides.css">
 
-  <script src="../src/vendor/modernizr/modernizr.js"></script>
-  <script src="../src/vendor/jquery/jquery.min.js"></script>
-  <script src="../src/vendor/angular/angular.min.js"></script>
-  <script src="../src/vendor/angular-animate/angular-animate.min.js"></script>
+    <script src="../src/vendor/modernizr/modernizr.js"></script>
+    <script src="../src/vendor/jquery/jquery.min.js"></script>
+    <script src="../src/vendor/angular/angular.min.js"></script>
+    <script src="../src/vendor/angular-animate/angular-animate.min.js"></script>
   
   
-  <script src="../src/app/foundation.js"></script>
-  <script src="../src/app/animations/animations.js"></script>
-  <script src="../src/app/alert/alert.js"></script>
-  <script src="../src/app/reveal/reveal.js"></script>
-  <script src="assets/app.js"></script>
-</head>
+    <script src="../src/app/foundation.js"></script>
+    <script src="../src/app/animations/animations.js"></script>
+    <script src="../src/app/alert/alert.js"></script>
+    <script src="../src/app/reveal/reveal.js"></script>
+    <script src="assets/app.js"></script>
+  </head>
 <body>
+  <nav class="top-bar hide-for-small" style="">
+    <ul class="title-area">
+      <!-- Title Area -->
+      <li class="name" ng-controller="MainCntrl">
+          <h1><a href="/">{{title}}</a></h1>
+      </li>
+      <!-- Remove the class "menu-icon" to get rid of menu icon. Take out "Menu" to just have icon alone -->
+      <li class="toggle-topbar menu-icon"><a href="#"><span>Menu</span></a></li>
+    </ul>
+    <section class="top-bar-section">
+      <!-- Right Nav Section -->
+      <ul class="right">
+        <li class="divider"></li>
+        <li class=""><a href="/misc">Misc</a></li>
+        <li class="divider"></li>
+        <li class="has-form">
+          <a href="https://github.com/indyplanets/angular-ui-foundation" class="button">Github Repo</a>
+        </li>
+      </ul>
+    </section>
+  </nav>
   <div class="row">
     <div class="large-12 columns">
 
